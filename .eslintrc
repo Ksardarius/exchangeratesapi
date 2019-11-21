@@ -1,0 +1,60 @@
+{
+  "extends": "react-app",
+  "plugins": [
+    "lodash-fp",
+    "fp"
+  ],
+  "rules": {
+    "lodash-fp/consistent-compose": "off",
+    "lodash-fp/consistent-name": [
+      "error",
+      "_"
+    ],
+    "lodash-fp/no-argumentless-calls": "error",
+    "lodash-fp/no-chain": "error",
+    "lodash-fp/no-extraneous-args": "error",
+    "lodash-fp/no-extraneous-function-wrapping": "error",
+    "lodash-fp/no-extraneous-iteratee-args": "error",
+    "lodash-fp/no-extraneous-partials": "error",
+    "lodash-fp/no-for-each": "off",
+    "lodash-fp/no-partial-of-curried": "error",
+    "lodash-fp/no-single-composition": "error",
+    "lodash-fp/no-submodule-destructuring": "error",
+    "lodash-fp/no-unused-result": "error",
+    "lodash-fp/prefer-compact": "error",
+    "lodash-fp/prefer-composition-grouping": "error",
+    "lodash-fp/prefer-constant": [
+      "error",
+      {
+        "arrowFunctions": false
+      }
+    ],
+    "lodash-fp/prefer-flat-map": "error",
+    "lodash-fp/prefer-get": "error",
+    "lodash-fp/prefer-identity": [
+      "error",
+      {
+        "arrowFunctions": false
+      }
+    ],
+    "lodash-fp/preferred-alias": "off",
+    "lodash-fp/use-fp": "error",
+    
+    // https://tproger.ru/translations/better-javascript-code-with-fp-features/
+    //"max-lines": ["warn", 300],
+    //"max-lines-per-function": ["warn", 30]
+    //"complexity": ["warn", 5]
+    "max-nested-callbacks": ["warn", 2],
+    "max-depth": ["warn", 3],
+    "no-param-reassign": "warn",
+    "prefer-const": "warn",
+    "fp/no-mutating-assign": "warn",
+    //"fp/no-mutating-methods": "warn",
+    //"fp/no-mutation": "warn",
+    //"fp/no-this": "warn"
+    "fp/no-loops": "warn",
+    "fp/no-delete": "warn",
+    "max-params": ["warn", 2],
+    //"fp/no-throw": "warn"
+  }
+}
