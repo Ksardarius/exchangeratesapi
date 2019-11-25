@@ -3,7 +3,7 @@ import { MockedProvider } from '@apollo/react-testing';
 import ExchangeRates, { EXCHANGE_RATES } from './ExchangeRates'
 import { render, fireEvent, waitForElement } from '@testing-library/react'
 import { NotificationContainer } from 'react-notifications';
-import wait from 'waait';6
+import wait from 'waait';
 
 const mocks = [
   {
