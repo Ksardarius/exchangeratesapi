@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`"Loading" UI component should be shown while data is fetched 1`] = `
+<DocumentFragment>
+  <div
+    class="loader"
+  >
+    <div
+      aria-busy="true"
+      class=""
+    >
+      <svg
+        aria-label="audio-loading"
+        height="100"
+        stroke="#00BFFF"
+        viewBox="0 0 44 44"
+        width="100"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g
+          fill="none"
+          fill-rule="evenodd"
+          stroke-width="2"
+        >
+          <circle
+            cx="22"
+            cy="22"
+            r="1"
+          >
+            <animate
+              attributeName="r"
+              begin="0s"
+              calcMode="spline"
+              dur="1.8s"
+              keySplines="0.165, 0.84, 0.44, 1"
+              keyTimes="0; 1"
+              repeatCount="indefinite"
+              values="1; 20"
+            />
+            <animate
+              attributeName="strokeOpacity"
+              begin="0s"
+              calcMode="spline"
+              dur="1.8s"
+              keySplines="0.3, 0.61, 0.355, 1"
+              keyTimes="0; 1"
+              repeatCount="indefinite"
+              values="1; 0"
+            />
+          </circle>
+          <circle
+            cx="22"
+            cy="22"
+            r="1"
+          >
+            <animate
+              attributeName="r"
+              begin="-0.9s"
+              calcMode="spline"
+              dur="1.8s"
+              keySplines="0.165, 0.84, 0.44, 1"
+              keyTimes="0; 1"
+              repeatCount="indefinite"
+              values="1; 20"
+            />
+            <animate
+              attributeName="strokeOpacity"
+              begin="-0.9s"
+              calcMode="spline"
+              dur="1.8s"
+              keySplines="0.3, 0.61, 0.355, 1"
+              keyTimes="0; 1"
+              repeatCount="indefinite"
+              values="1; 0"
+            />
+          </circle>
+        </g>
+      </svg>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`data is fetched when the button is clicked 1`] = `
+<DocumentFragment>
+  <div
+    class="container mt-5"
+  >
+    <div
+      class="row"
+    >
+      <button
+        class="btn btn-primary btn-lg btn-block"
+        type="button"
+      >
+        Get rates
+      </button>
+    </div>
+    <div
+      class="row mt-3"
+      data-testid="exchange-main-row"
+    >
+      <div
+        class="col-sm-6"
+      >
+        <span>
+          Base: 
+          <strong>
+            EUR
+          </strong>
+        </span>
+      </div>
+      <div
+        class="col-sm-6"
+      >
+        Date: 
+        <strong>
+          2019-11-22
+        </strong>
+      </div>
+    </div>
+    <div
+      class="row mt-3"
+    >
+      <div
+        class="col-sm-3"
+      >
+        CAD:
+        <strong
+          class="pl-1"
+        >
+          1.4679
+        </strong>
+      </div>
+      <div
+        class="col-sm-3"
+      >
+        HKD:
+        <strong
+          class="pl-1"
+        >
+          8.6525
+        </strong>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

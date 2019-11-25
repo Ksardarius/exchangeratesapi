@@ -3,6 +3,8 @@ import { InMemoryCache } from 'apollo-cache-inmemory';
 import gql from 'graphql-tag';
 import { assign } from 'lodash/fp'
 
+const SERVICE_URL = 'https://api.exchangeratesapi.io/latest'
+
 const typeDefs = gql`
   scalar JSON
   scalar Date
@@ -19,28 +21,32 @@ const typeDefs = gql`
 `;
 
 const assingTypeName = assign({
-    __typename: 'ExchangeRate'
+  __typename: 'ExchangeRate'
 })
 
-export const GraphQLClientFactory = () => {
-    const client = new ApolloClient({
-        // uri: 'https://48p1r2roz4.sse.codesandbox.io',
-        cache: new InMemoryCache(),
-        resolvers: {
-            Query: {
-                exchangeRates: async (obj, args, context, info) => {
-                    const response = await fetch('https://api.exchangeratesapi.io/latest')
-                    if (response.ok) { // если HTTP-статус в диапазоне 200-299
-                        const r = await response.json();
-                        return assingTypeName(r)
-                      } else {
-                        alert("Error: " + response.status);
-                      }
-                } //({"__typename": "ExchangeRate", "rates":{"CAD":1.4561,"HKD":8.6372,"ISK":137.7,"PHP":55.809,"DKK":7.4727,"HUF":333.37,"CZK":25.486,"AUD":1.6065,"RON":4.7638,"SEK":10.7025,"IDR":15463.05,"INR":78.652,"BRL":4.5583,"RUB":70.4653,"HRK":7.4345,"JPY":120.72,"THB":33.527,"CHF":1.0991,"SGD":1.5002,"PLN":4.261,"BGN":1.9558,"TRY":6.3513,"CNY":7.7115,"NOK":10.0893,"NZD":1.7426,"ZAR":16.3121,"USD":1.1034,"MXN":21.1383,"ILS":3.8533,"GBP":0.86158,"KRW":1276.66,"MYR":4.5609},"base":"EUR","date":"2019-11-08"})
-            }
-        },
-        typeDefs
-    });
+function timeout (ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
 
-    return client;
+export const creteGraphQLClient = () => {
+  const client = new ApolloClient({
+    cache: new InMemoryCache(),
+    resolvers: {
+      Query: {
+        exchangeRates: async () => {
+          const response = await fetch(SERVICE_URL)
+          await timeout(1000);
+          if (response.ok) {
+            const r = await response.json();
+            return assingTypeName(r)
+          } else {
+            throw new Error('Service call problem')
+          }
+        }
+      }
+    },
+    typeDefs
+  });
+
+  return client;
 }

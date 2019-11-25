@@ -1,33 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import 'react-notifications/lib/notifications.css';
 
 import { ApolloProvider } from '@apollo/react-hooks';
-import { GraphQLClientFactory } from './GraphQLClient';
+import { creteGraphQLClient } from './GraphQLClient';
 import ExchangeRates from './ExchangeRates'
+import { NotificationManager, NotificationContainer } from 'react-notifications';
 
-function App() {
+function App () {
 
-  const client = GraphQLClientFactory();
+  const client = creteGraphQLClient();
 
   return (
     <ApolloProvider client={client}>
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-        </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-        </a>
-        <ExchangeRates />
-        </header>
+      <div>
+        <NotificationContainer/>
+        <ExchangeRates onError={(msg, title) => NotificationManager.error(msg, title)} />
       </div>
     </ApolloProvider>
   );
